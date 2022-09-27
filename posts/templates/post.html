@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Título da Página</title>
+</head>
+
+<body>
+    {% include 'static/partials/navbar.html' %}
+
+    <div id="post">
+        <header>
+            <h1 style="font-size: 38px;">{{post.titulo}}</h1>
+            <h2 style="font-size: 16px;">Escrito por {{post.autor}} em {{post.publicado|date:'SHORT_DATE_FORMAT'}}</h2>
+        </header>
+
+        <img src="{{post.imagem.url}}" alt="Foto da Publicação" width="60%" height="70%">
+
+        <div id="conteudo">{{post.conteudo|linebreaks}}</div>
+    </div>
+</body>
+
+</html>

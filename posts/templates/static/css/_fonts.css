@@ -1,0 +1,9 @@
+@font-face {
+    font-family: RalewayThin;
+    src: url(./assets/raleway-thin.ttf);
+}
+
+@font-face {
+    font-family: RalewayHeavy;
+    src: url(./assets/raleway-heavy.ttf);
+}

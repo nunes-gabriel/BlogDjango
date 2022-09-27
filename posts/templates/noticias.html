@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Título da Página</title>
+</head>
+
+<body>
+    {% include 'static/partials/navbar.html' %}
+
+    <div id="header">
+        <h1>Últimas Notícias</h1>
+        <hr>
+    </div>
+
+    <div id="posts">
+        {% for post in posts %}
+            {% if post.categoria.nome == 'Notícia' %}
+                <div class="card">
+                    <img src="{{post.imagem.url}}" alt="Foto - {{post.titulo}}" width="100%" height="60%">
+                    <div class="texto">
+                        <h3><a href="/posts/{{post.pk}}">{{post.titulo}}</a></h3>
+                        <p>{{post.descricao}}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+</html>
